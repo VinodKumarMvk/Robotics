@@ -15,8 +15,8 @@ public class RobotMonitor extends Thread {
 
 	public void run() {
 		while (true) {
-			//LCD.clear();
-			//LCD.drawString("Color = " + me.cs.getColorID(), 0, 0);
+			LCD.clear();
+			LCD.drawString("state = " + me.state, 0, 0);
 			//LCD.drawString("Ultra = " + me.us.getRange(), 0, 1);
 			
 			//LCD.drawString("MotorA = " + me.ma.getTachoCount(), 0, 3);

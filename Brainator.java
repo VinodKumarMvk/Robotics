@@ -1,12 +1,15 @@
 
 import behaviour.ForwardBehavior;
+import behaviour.GreenMarker;
 import behaviour.InLine;
 import behaviour.ObjectAvoid;
 import behaviour.ObjectDetector;
 import behaviour.OffLine;
 import behaviour.OnTrack;
 import behaviour.Overshoot;
+import behaviour.RedMarker;
 import behaviour.Scanner;
+import behaviour.YellowMarker;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 import robotcontroller.RobotMonitor;
@@ -25,7 +28,10 @@ public class Brainator {
 	 	Behavior offLine = new OffLine(me);
 	 	Behavior inLine = new InLine(me);
 	 	Behavior onTrack = new OnTrack(me);
-	 	Behavior [] bArray = {overshoot, offLine, inLine ,objectDetect , scanner, avoid, onTrack};
+	 	Behavior redMarker = new RedMarker(me);
+	 	Behavior yellowMaker = new YellowMarker(me);
+	 	Behavior greenMarker = new GreenMarker(me);
+	 	Behavior [] bArray = {overshoot, offLine, inLine ,objectDetect , scanner, avoid, onTrack, redMarker, yellowMaker, greenMarker};
 	 	Arbitrator arb = new Arbitrator(bArray);
 	 	arb.start();
 	} // end main

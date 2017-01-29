@@ -6,6 +6,7 @@ import lejos.nxt.NXTRegulatedMotor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
 import lejos.nxt.addon.ColorHTSensor;
+import lejos.nxt.addon.CompassHTSensor;
 import util.Consts;
 import util.LineHelper;
 
@@ -15,6 +16,7 @@ public class StandardRobot {
 	public static UltrasonicSensor us;
 	public static NXTRegulatedMotor ma, mb;
 	public static NXTRegulatedMotor mc;
+	public static CompassHTSensor chs;
 	public static NXTMotor leftMotor;
 	public static NXTMotor rightMotor;
 	public static boolean scan;
@@ -26,6 +28,7 @@ public class StandardRobot {
 	public static int black, blackMean;
 	public static int threshold_line_color = 0;
 	public  int lastAngleIndex = 0; 
+	public static String state;
 	//turn:  0 center, 1 left, 2 right, 3 lock
 		public int getAngleAdj(int turn){
 			if(lastAngleIndex != turn) {
@@ -59,6 +62,7 @@ public class StandardRobot {
 			us = new UltrasonicSensor(SensorPort.S3);
 			cs = new ColorHTSensor(SensorPort.S4);
 			ls = new LightSensor(SensorPort.S1);
+			chs = new CompassHTSensor(SensorPort.S2);
 			// instantiate motors
 			ma = new NXTRegulatedMotor(MotorPort.A);
 			mb = new NXTRegulatedMotor(MotorPort.B);
